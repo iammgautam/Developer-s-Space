@@ -14,7 +14,7 @@ class Project(models.Model):
     id = models.UUIDField(default= uuid4, unique=True, primary_key=True, editable=False)
 
     def __str__(self):
-        return self.title
+        return self.id
 
 class Review(models.Model):
     VOTE_TYPE = (
