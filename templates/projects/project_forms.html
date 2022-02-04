@@ -1,12 +1,38 @@
-{% extends 'main.html' %}
+{% extends 'main.html' %} {% block content %}
+{% comment %} <h1>Project Form</h1> {% endcomment %}
 
-{% block content %}
-<h1>Project Form</h1>
 
-<form action="" method="post" enctype = 'multipart/form-data'>
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Submit">
-</form>
+{% comment %} -----------------------------------------------------------
+-------------------------------------------------------------------------
+------------------------------------------------------------------------- {%endcomment %}
+
+<!-- Main Section -->
+<main class="formPage my-xl">
+  <div class="content-box">
+    
+    <div class="formWrapper">
+        <a class="backButton" href="{% url 'projects' %}"><i class="im im-angle-left"></i></a>
+        <div class="text-center singleProject__title">
+            <h2>Project Form</h2>
+          </div>
+
+      <form class="form" method="POST"  enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in form %}
+        <!-- Input:Text -->
+        <div class="form__field">
+          <label for="formInput#text">{{field.label}} </label>
+          {{field}}
+        </div>
+        {% endfor %}
+        <input
+          class="btn btn--sub btn--lg my-md"
+          type="submit"
+          value="Submit"
+        />
+      </form>
+    </div>
+  </div>
+</main>
 
 {% endblock content %}
