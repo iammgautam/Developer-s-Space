@@ -1,21 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'main.html' %} {% block content %}
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{project.title}}</title>
+  <title>Devsearch | {{project.title}}</title>
 </head>
-<body>
-    <h1>{{project.title}}</h1>
-    <hr>
-    <h3>Tags:</h3>
-    <ul>
-        {% for tag in project.tags.all %}
-            <li>{{tag}}</li>
-        {% endfor %}
-    </ul>
-    <hr>
-    <p>{{project.description}}</p>
-</body>
-</html>
+
+<h1>{{project.title}}</h1>
+<hr />
+<img style= 'max-width:500px' src="{{ project.feature_image.url }}" />
+<h3>Tags:</h3>
+<ul>
+  {% for tag in project.tags.all %}
+  <li>{{tag}}</li>
+  {% endfor %}
+</ul>
+<hr />
+<p>{{project.description}}</p>
+
+{% endblock content %}

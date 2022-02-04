@@ -5,6 +5,7 @@ from django.db import models
 class Project(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(null= True, blank=True)
+    feature_image = models.ImageField(null= True, blank=True, default='default.jpg')
     demo_link = models.CharField(max_length=2000, null=True, blank=True)
     source_link = models.CharField(max_length=2000, null=True, blank = True)
     tags = models.ManyToManyField('Tag',blank= True)
@@ -14,7 +15,7 @@ class Project(models.Model):
     id = models.UUIDField(default= uuid4, unique=True, primary_key=True, editable=False)
 
     def __str__(self):
-        return self.id
+        return self.title
 
 class Review(models.Model):
     VOTE_TYPE = (
