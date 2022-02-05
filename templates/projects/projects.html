@@ -92,7 +92,7 @@
                   {{project.title}}
                 </h3>
                 <p>
-                  <a class="project__author" href="profile.html"
+                  <a class="project__author" href="{% url 'user-profile' project.owner.id%}"
                     >{{project.owner.name}}</a
                   >
                 </p>
