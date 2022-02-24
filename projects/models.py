@@ -1,6 +1,8 @@
 from uuid import uuid4
 from django.db import models
 from users.models import Profile
+
+
 # Create your models here.
 class Project(models.Model):
     owner = models.ForeignKey(Profile, on_delete=models.SET_NULL,null=True, blank=True)
